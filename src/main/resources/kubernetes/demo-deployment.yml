@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo
+  labels:
+    app: demo
+spec:
+  containers:
+  - name: demo
+    image: sandeeptiet/demo:1.0
+    env:
+    - name: MONGO_USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: mongodb-secret
+          key: username
+    - name: MONGO_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: mongodb-secret
+          key: password
+    - name: MONGO_HOST
+      valueFrom:
+        configMapKeyRef:
+          name: mongodb-configmap
+          key: host
+    - name: MONGO_DATABASE
+      valueFrom:
+        configMapKeyRef:
+          name: mongodb-configmap
+          key: database 
+
+          
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-service
+spec:
+  type: NodePort
+  selector:
+    app: demo
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+          

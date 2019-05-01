@@ -1,0 +1,10 @@
+#spring.data.mongodb.uri: mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}/${MONGO_DATABASE}
+spring.data.mongodb.uri: mongodb+srv://sandeep-26:password-1@cluster0-seekh.gcp.mongodb.net/test
+
+# spring.data.mongodb.host: cluster0-seekh.gcp.mongodb.net
+# spring.data.mongodb.port: 27017
+# spring.data.mongodb.database: test
+# spring.data.mongodb.password: password-1
+# spring.data.mongodb.username: sandeep-26
+
+# mongodb+srv://sandeep-26:<password>@cluster0-seekh.gcp.mongodb.net/test?retryWrites=true
